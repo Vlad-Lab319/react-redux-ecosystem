@@ -5,19 +5,14 @@ import { connect } from 'react-redux';
 import NewTodoForm from "./NewTodoForm";
 import TodoListItem from './TodoListItem';
 import { 
-  getTodos, 
   getTodosLoading,
   getCompletedTodos,
   getIncompleteTodos,
  } from "./selectors";
 import { loadTodos, deleteTodoRequest, updateTodoRequest } from "./thunks";
-// import { markTodoCompleted } from "./actions";
-// import { displayAlert } from "./thunks";
-// import { isLoading } from "./reducers";
 
 const TodoList = ({
-  // todos = [{ text: "First todo" }],
-  // todos = [],
+  todos = [],
   completedTodos,
   incompleteTodos,
   onRemovePressed,
@@ -59,7 +54,6 @@ const TodoList = ({
 
 const mapStateToProps = state => ({
   isLoading: getTodosLoading(state),
-  // todos: getTodos(state),
   completedTodos: getCompletedTodos(state),
   incompleteTodos: getIncompleteTodos(state),
 });
