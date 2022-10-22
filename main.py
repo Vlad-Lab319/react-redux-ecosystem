@@ -9,26 +9,32 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 import uuid
-import datetime
+import datetime 
+from datetime import timedelta
 
 fake_api = [
   {
     "id": "04549f9a-514b-11ed-9602-91eb99f9e2ee",
     "text": "Do something",
     "isCompleted": False,
-    "createdAt": "2022-10-21T10:37:56.853291",
+    # "createdAt": "2022-10-15T10:37:56.853291",
+    "createdAt": str(datetime.datetime.now() - timedelta(days=5)),
   },
   {
     "id": "1c21aeec-514b-11ed-9602-91eb99f9e2ee", 
     "text": "Do more",
     "isCompleted": False,
-    "createdAt": "2022-10-21T10:38:56.941775",
+    # "createdAt": "2022-10-19T10:38:56.941775",
+    "createdAt": str(datetime.datetime.now() - timedelta(days=3)),
+
   },
   {
     "id": "3c1e876a-514b-11ed-9602-91eb99f9e2ee",
     "text": "Do better",
     "isCompleted": False,
-    "createdAt": "2022-10-21T10:39:42.262117"
+    # "createdAt": "2022-10-20T10:39:42.262117",
+    "createdAt": str(datetime.datetime.now() - timedelta(days=1)),
+
   }
   ]
 
@@ -60,7 +66,7 @@ async def create_new_todo(todo: TodoItem):
     "id": str(uuid.uuid1()), 
     "text": todo.text, 
     "isCompleted": False, 
-    "createdAt": datetime.datetime.now()
+    "createdAt": str(datetime.datetime.now()),
     }
   fake_api.append(todo)
   return todo

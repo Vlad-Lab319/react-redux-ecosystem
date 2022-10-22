@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 import './TodoList.css';
-
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import NewTodoForm from "./NewTodoForm";
 import TodoListItem from './TodoListItem';
-import { 
+import {
   getTodosLoading,
   getCompletedTodos,
   getIncompleteTodos,
- } from "./selectors";
+} from "./selectors";
 import { loadTodos, deleteTodoRequest, updateTodoRequest } from "./thunks";
 
 const TodoList = ({
-  todos = [],
   completedTodos,
   incompleteTodos,
   onRemovePressed,
@@ -38,8 +37,8 @@ const TodoList = ({
           onRemovePressed={onRemovePressed}
           onCompletePressed={onCompletePressed}
         />)}
-        <h3>Complete:</h3>
-        {completedTodos.map(todo =>
+      <h3>Complete:</h3>
+      {completedTodos.map(todo =>
         <TodoListItem
           key={todo.id}
           todo={todo}
