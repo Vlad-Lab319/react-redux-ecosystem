@@ -5,7 +5,7 @@ import {
   loadTodosInProgress,
   loadTodosSuccess,
   loadTodosFailure
-} from "./actions";
+} from "./actions.js";
 
 export const loadTodos = () => async (dispatch, getState) => {
   try {

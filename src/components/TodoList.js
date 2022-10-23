@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import './TodoList.css';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import NewTodoForm from "./NewTodoForm";
-import TodoListItem from './TodoListItem';
+import NewTodoForm from "./NewTodoForm.js";
+import TodoListItem from './TodoListItem.js';
 import {
   getTodosLoading,
   getCompletedTodos,
   getIncompleteTodos,
-} from "./selectors";
-import { loadTodos, deleteTodoRequest, updateTodoRequest } from "./thunks";
+} from "./selectors.js";
+import { loadTodos, deleteTodoRequest, updateTodoRequest } from "./thunks.js";
 
 const TodoList = ({
   completedTodos,
